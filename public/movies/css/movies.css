@@ -9,8 +9,7 @@ html {
   font-size: 10px;
 }
 body {
-  background-image: url('../img/Group\ 2.svg');
-  height: 100vh;
+  background-image: url('../../img/background.png');
   background-size: cover;
 }
 .navbar {
@@ -23,7 +22,7 @@ body {
   color: #24abbd;
   font-family: Arbutus, serif;
   font-weight: 400;
-  font-size: 4.2rem;
+  font-size: 2.5rem;
   text-align: center;
   letter-spacing: 3px;
   padding: 1rem;
@@ -40,10 +39,39 @@ body {
   text-decoration: none;
   color: white;
   padding: 1rem 3rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-family: 'Inter', serif;
-  font-weight: 700;
   display: flex;
   align-items: center;
   text-align: center;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 2rem auto;
+  color: white;
+  position: relative;
+}
+.search input {
+  all: unset;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3rem;
+  color: #eee;
+  padding: 1rem 2rem;
+  outline: 1px solid #eee;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.search i {
+  position: absolute;
+  color: white;
+  top: 50%;
+  right: 2rem;
+  font-size: 1.5rem;
+  transform: translateY(-50%);
 }
