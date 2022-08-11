@@ -11,6 +11,12 @@ html {
 body {
   background-image: url('../../img/background.png');
   background-size: cover;
+  /* background-position: center; */
+  overflow: hidden;
+  background-attachment: fixed;
+
+  /* height: 100%; */
+
 }
 .navbar {
   display: flex;
@@ -64,7 +70,7 @@ body {
   padding: 1rem 2rem;
   outline: 1px solid #eee;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .search i {
@@ -74,4 +80,54 @@ body {
   right: 2rem;
   font-size: 1.5rem;
   transform: translateY(-50%);
+}
+
+
+.movies-suggestions {
+    margin: 4rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 83vh;
+    
+  }
+  .movies-suggestions-images {
+    width: 60%;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: scroll;
+  }
+  .movies-suggestions-images img {
+    margin: 1.5rem;
+  }
+  .movies-suggestions-images img:nth-child(odd) {
+    border: #bd2424 3px solid;
+}
+.movies-suggestions-images img:nth-child(even) {
+    border: #24abbd 3px solid;
+}
+  /* width */
+.movies-suggestions-images::-webkit-scrollbar {
+    width: 1.5rem;
+  }
+  
+  /* Track */
+  .movies-suggestions-images::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+   
+  /* Handle */
+  .movies-suggestions-images::-webkit-scrollbar-thumb {
+    background: rgb(6, 164, 212); 
+    border-radius: 1rem;
+  }
+  
+  /* Handle on hover */
+  .movies-suggestions-images ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
