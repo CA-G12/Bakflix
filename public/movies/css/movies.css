@@ -8,6 +8,11 @@
 html {
   font-size: 10px;
 }
+body {
+  background-image: url('../img/Group\ 2.svg');
+  height: 100vh;
+  background-size: cover;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -30,7 +35,6 @@ html {
 .navbar-items {
   display: flex;
 }
-
 
 .navbar-items a {
   text-decoration: none;
