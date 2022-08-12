@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Arbutus&family=Arbutus+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #BD2424;
+  --blue: #24ABBD;
+  --white: #EEEEEE;
+  --black: #111111;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-image: url('./img/background.png');
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: cover;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 10% 0;
+  flex-wrap: wrap;
+}
+
+.navbar-logo h1 {
+  color: var(--blue);
+  font-family: Arbutus, serif;
+  font-weight: 400;
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 3px;
+  padding: 1rem;
+  text-shadow: 0px 4px 4px var(--black);
+  user-select: none;
+}
+
+.navbar-logo h1 span {
+  color: var(--red);
+}
+
+.navbar-items {
+  display: flex;
+}
+
+.navbar-items a {
+  text-decoration: none;
+  color: white;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  font-family: 'Inter', serif;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar-items a:hover {
+  color: var(--blue);
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+/* Landing section style starts */
+
+#landing {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#landing > div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 2rem;
+}
+
+#landing #head h1{
+  font-size: 7rem;
+  text-transform: uppercase;
+  color: var(--blue);
+  text-shadow: 0px 4px 5px var(--black);
+  letter-spacing: 3px;
+  font-weight: bolder;
+}
+
+#landing #head p{
+  font-size: 4rem;
+  color: var(--white);
+  width: 60%;
+  text-shadow: 0px 4px 2px #444;
+}
+
+#landing #button > div {
+  background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+}
+
+#landing #button .outer {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  position: relative;
+}
+
+#landing #button .outer button,
+#landing #button .outer span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#landing #button .outer button {
+  background-color: var(--black);
+  color: var(--blue);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  height: 230px;
+  width: 230px;
+  border-radius: 50%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2.5rem;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+
+#landing #button .outer button:hover {
+  color: var(--blue);
+}
+
+#landing #button .outer span {
+  height: 100%;
+  width: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+#landing #button .outer span:nth-child(1) {
+  filter: blur(14px);
+}
+
+#landing #button .outer span:nth-child(2) {
+  filter: blur(21px);
+}
+
+#landing #button .outer {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* landing section style ends */
+
+/* browse section style starts */
+
+#browse {
+  display: none;
+}
+
+#browse .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 2rem auto;
+  color: var(--white);
+  position: relative;
+}
+#browse .search input {
+  all: unset;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3rem;
+  color: var(--white);
+  padding: 1rem 2rem;
+  outline: 1px solid var(--white);
+  border: none;
+  font-size: 2rem;
+}
+
+#browse .search i {
+  position: absolute;
+  color: var(--white);
+  top: 50%;
+  right: 2rem;
+  font-size: 1.5rem;
+  transform: translateY(-50%);
+}
+
+#browse .movies-suggestions {
+  margin: 4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 83vh;
+}
+
+#browse .movies-suggestions-images {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow-y: scroll;
+}
+
+#browse .movies-suggestions-images img {
+  margin: 1.4rem;
+}
+
+#browse .movies-suggestions-images img:nth-child(odd) {
+  border: var(--red) 3px solid;
+}
+
+#browse .movies-suggestions-images img:nth-child(even) {
+  border: var(--blue) 3px solid;
+}
+
+/* width */
+#browse .movies-suggestions-images::-webkit-scrollbar {
+  width: 1.5rem;
+}
+
+/* Track */
+#browse .movies-suggestions-images::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Handle */
+#browse .movies-suggestions-images::-webkit-scrollbar-thumb {
+  background: rgb(6, 164, 212);
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+#browse .movies-suggestions-images ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#browse .movies-suggestions-names {
+  width: 50%;
+  height: 83vh;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  overflow-y: scroll;
+}
+
+#browse .movies-suggestions-names h1 {
+  font-size: 3rem;
+  font-family: 'Inter', serif;
+  color: var(--white);
+  margin-bottom: 2.5rem;
+}
+
+#browse .movies-suggestions-names a {
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: 'Inter', serif;
+  color: var(--white);
+  padding-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+#browse .movies-suggestions-names a:nth-child(even):hover {
+  cursor: pointer;
+  color: var(--red);
+}
+
+#browse .movies-suggestions-names a:nth-child(odd):hover {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+/* width */
+#browse .movies-suggestions-names::-webkit-scrollbar {
+  width: 1.5rem;
+}
+
+/* Track */
+#browse .movies-suggestions-names::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Handle */
+#browse .movies-suggestions-names::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 1rem;
+}
+
+/* Handle on hover */
+#browse .movies-suggestions-names ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* browse section style ends */
