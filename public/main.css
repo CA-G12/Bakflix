@@ -4,7 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition: 00.2s;
+  transition: all 0.2s ease-in-out;
 }
 
 :root {
@@ -27,6 +27,7 @@ body {
   object-fit: cover;
   background-size: cover;
   height: 100vh;
+  overflow: hidden;
 }
 
 .navbar {
