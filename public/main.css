@@ -185,7 +185,8 @@ main {
 
 /* browse section style starts */
 
-#browse {
+
+.display {
   display: none;
 }
 
@@ -208,6 +209,7 @@ main {
   outline: 1px solid var(--white);
   border: none;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 #browse .search i {
