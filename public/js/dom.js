@@ -33,7 +33,29 @@ searchInput.addEventListener('input', (e) => {
     handleDom(data);
   });
 });
+function removeDuplicates(mainDiv) {
+  while (mainDiv.firstChild) {
+    mainDiv.removeChild(mainDiv.lastChild);
+  }
+}
 
 function handleDom(data) {
+  removeDuplicates(movieSuggestionsNames)
+  removeDuplicates(movieSuggestionsImages)
+  for (let i = 0; i < data.length; i++) {
+    const names = data[i][name].name;
+    const img = data[i][name].img;
+    if (names.toLowerCase().includes(input.value.toLowerCase())) {
+      console.log(input.value.split(' ').join(''));
+      const movieName = document.createElement('a')
+      movieName.textContent = names
+      movieSuggestionsNames.appendChild(movieName)
+      const movieImage = document.createElement('img')
+      movieImage.src = img;
+      movieSuggestionsImages.appendChild(movieImage)
+    }
+  }
+
+
 
 }

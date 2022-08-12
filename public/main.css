@@ -8,9 +8,9 @@
 }
 
 :root {
-  --red: #BD2424;
-  --blue: #24ABBD;
-  --white: #EEEEEE;
+  --red: #bd2424;
+  --blue: #24abbd;
+  --white: #eeeeee;
   --black: #111111;
 }
 
@@ -97,7 +97,7 @@ main {
   gap: 2rem;
 }
 
-#landing #head h1{
+#landing #head h1 {
   font-size: 7rem;
   text-transform: uppercase;
   color: var(--blue);
@@ -106,7 +106,7 @@ main {
   font-weight: bolder;
 }
 
-#landing #head p{
+#landing #head p {
   font-size: 4rem;
   color: var(--white);
   width: 60%;
@@ -187,7 +187,6 @@ main {
 
 /* browse section style starts */
 
-
 .display {
   display: none;
 }
@@ -240,11 +239,12 @@ main {
   justify-content: center;
   padding: 1.5rem;
   overflow-y: scroll;
-  
 }
 
 #browse .movies-suggestions-images img {
   margin: 1.4rem;
+  width: 25%;
+  height: 50%;
 }
 
 #browse .movies-suggestions-images img:nth-child(odd) {
