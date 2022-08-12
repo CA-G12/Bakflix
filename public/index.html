@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./public/main.css" />
-    <link rel="icon" href="./public/img/favicon.ico" type="image/icon type">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="icon" href="./public/img/favicon.ico" type="image/icon type" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
     <title>Movies</title>
   </head>
   <body>
@@ -40,14 +43,15 @@
       <!-- LANDING SECTION ENDS -->
 
       <!-- BROWSE SERIES AND SUGGESTIONS SECTION STARTS -->
-      <section id="browse" >
+      <section id="browse">
         <form class="search">
-          <input type="text" placeholder="Search" />
-          <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input id="input" type="text" placeholder="Search" />
+          <button type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </form>
         <div class="movies-suggestions">
-          <div class="movies-suggestions-images">
-          </div>
+          <div class="movies-suggestions-images"></div>
           <div class="movies-suggestions-names">
             <h1>Suggestions</h1>
           </div>
@@ -56,7 +60,6 @@
       <!-- BROWSE SERIES AND SUGGESTIONS SECTION ENDS -->
     </main>
     <script src="./public/js/fetch.js"></script>
-    <script src="./public/js/script.js"></script>
     <script src="./public/js/dom.js"></script>
   </body>
 </html>

@@ -240,6 +240,7 @@ main {
   justify-content: center;
   padding: 1.5rem;
   overflow-y: scroll;
+  
 }
 
 #browse .movies-suggestions-images img {
