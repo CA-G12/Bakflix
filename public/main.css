@@ -293,8 +293,12 @@ main {
   color: var(--white);
   margin-bottom: 2.5rem;
 }
+#browse .movies-suggestions-names .suggestions-title {
+  display: flex;
+  flex-direction: column;
+}
 
-#browse .movies-suggestions-names a {
+#browse .movies-suggestions-names .suggestions-title a {
   text-decoration: none;
   font-size: 2rem;
   font-family: 'Inter', serif;
@@ -303,12 +307,12 @@ main {
   margin-left: 1rem;
 }
 
-#browse .movies-suggestions-names a:nth-child(even):hover {
+#browse .movies-suggestions-names .suggestions-title a:nth-child(even):hover {
   cursor: pointer;
   color: var(--red);
 }
 
-#browse .movies-suggestions-names a:nth-child(odd):hover {
+#browse .movies-suggestions-names .suggestions-title a:nth-child(odd):hover {
   color: var(--blue);
   cursor: pointer;
 }

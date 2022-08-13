@@ -3,9 +3,8 @@ const browseSection = document.querySelector('#browse');
 const btnLandingSection = document.querySelector('#btn');
 const movieSuggestionsImages = document.querySelector('.movies-suggestions-images');
 const movieSuggestionsNames = document.querySelector('.movies-suggestions-names');
-const searchInput = document.querySelector('input');
-
-const input = document.querySelector('#input');
+const searchInput = document.querySelector('#input');
+const suggestionsTitle = document.querySelector('.suggestions-title');
 
 // for make hidde moview image container and moview names container when the page load
 window.onload = () => {
@@ -15,7 +14,7 @@ window.onload = () => {
   movieSuggestionsNames.style.transform = 'translateX(-400%)';
 };
 
-// for view and hidde browse section 
+// for view and hidde browse section
 btnLandingSection.addEventListener('click', () => {
   landingSection.style.display = 'none';
   browseSection.style.display = 'block';
@@ -25,18 +24,17 @@ btnLandingSection.addEventListener('click', () => {
 searchInput.addEventListener('input', (e) => {
   e.preventDefault()
   const haga = e.target.value;
-  if (haga.value === '') {
+  if (searchInput.value === '') {
     movieSuggestionsImages.style.transform = 'translateX(-400%)';
     movieSuggestionsNames.style.transform = 'translateX(400%)';
   } else {
     movieSuggestionsImages.style.transform = 'translateX(0%)';
     movieSuggestionsNames.style.transform = 'translateX(0%)';
   }
-  fetch(`/search/${haga}`, (data) => {
+  fetch(`/src/${haga}`, (data) => {
     handleDom(data);
   });
 });
-
 
 function removeDuplicates(mainDiv) {
   while (mainDiv.firstChild) {
@@ -46,19 +44,31 @@ function removeDuplicates(mainDiv) {
 
 // for handle data in dom
 function handleDom(data) {
-  removeDuplicates(movieSuggestionsNames)
-  removeDuplicates(movieSuggestionsImages)
+  removeDuplicates(suggestionsTitle);
+  removeDuplicates(movieSuggestionsImages);
   for (let i = 0; i < data.length; i++) {
-    const names = data[i][`name`];
-    const img = data[i][`img`];
-    if (names.toLowerCase().includes(input.value.toLowerCase())) {
-      console.log(input.value.split(' ').join(''));
-      const movieName = document.createElement('a')
-      movieName.textContent = names
-      movieSuggestionsNames.appendChild(movieName)
-      const movieImage = document.createElement('img')
-      movieImage.src = img;
-      movieSuggestionsImages.appendChild(movieImage)
+    const names = data[i].name;
+    const { img } = data[i];
+    if (names.toLowerCase().includes(searchInput.value.toLowerCase())) {
+      createElemets(movieSuggestionsImages, 'img', img);
+      createElemets(suggestionsTitle, 'a', names);
     }
   }
 }
+function createElemets(parent, child, content) {
+  const element = document.createElement(`${child}`);
+  if (child === 'img') {
+    element.src = content;
+  } else if (child === 'a') {
+    element.href = '#';
+    element.textContent = content;
+  } else {
+    element.textContent = content;
+  }
+  parent.appendChild(element);
+  return element;
+}
+module.exports = {
+  createElemets,
+  removeDuplicates,
+};
