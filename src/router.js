@@ -6,6 +6,7 @@ const router = (req, res) => {
   const endPoint = req.url;
 
   if (endPoint === '/') {
+
     const filePath = path.join(__dirname, '..', 'public', 'index.html');
     fs.readFile(filePath, (err, data) => {
       if (err) {
@@ -16,7 +17,9 @@ const router = (req, res) => {
         res.end(data);
       }
     });
+
   } else if (endPoint.includes('public')) {
+
     const filePath = path.join(__dirname, '..', endPoint);
     const type = mime.lookup(endPoint);
     fs.readFile(filePath, (err, data) => {
@@ -28,7 +31,9 @@ const router = (req, res) => {
         res.end(data);
       }
     });
+
   } else if (endPoint.includes('search')) {
+
     const searchText = endPoint.split('/')[2];
     const jsonPath = path.join(__dirname, '.', 'data.json');
     const result = [];
@@ -40,18 +45,22 @@ const router = (req, res) => {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         if (searchText !== '') {
           const jsonData = JSON.parse(data.toString());
-          for (const key in jsonData) {
+          for (let key in jsonData) {
             if (jsonData[key].name.toLowerCase().includes(searchText.toLowerCase())) {
-              result.push({ key: jsonData[key] });
+              let obj = {id:key,...jsonData[key]};
+              result.push(obj);
             }
           }
         }
         res.end(JSON.stringify(result));
       }
     });
+
   } else {
+
     res.writeHead(404);
     res.end('<h1>Not Found</h1>');
+
   }
 };
 
