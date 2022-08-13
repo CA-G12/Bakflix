@@ -22,7 +22,8 @@ btnLandingSection.addEventListener('click', () => {
 
 // for git data from json by using fetch api function
 searchInput.addEventListener('input', (e) => {
-  const haga= e.target.value
+  e.preventDefault()
+  const haga = e.target.value;
   if (searchInput.value === '') {
     movieSuggestionsImages.style.transform = 'translateX(-400%)';
     movieSuggestionsNames.style.transform = 'translateX(400%)';
