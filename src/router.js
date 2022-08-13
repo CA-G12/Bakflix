@@ -6,7 +6,6 @@ const router = (req, res) => {
   const endPoint = req.url;
 
   if (endPoint === '/') {
-
     const filePath = path.join(__dirname, '..', 'public', 'index.html');
     fs.readFile(filePath, (err, data) => {
       if (err) {
@@ -19,7 +18,6 @@ const router = (req, res) => {
     });
 
   } else if (endPoint.includes('public')) {
-
     const filePath = path.join(__dirname, '..', endPoint);
     const type = mime.lookup(endPoint);
     fs.readFile(filePath, (err, data) => {
@@ -32,8 +30,7 @@ const router = (req, res) => {
       }
     });
 
-  } else if (endPoint.includes('search')) {
-
+  } else if (endPoint.includes('src')) {
     const searchText = endPoint.split('/')[2];
     const jsonPath = path.join(__dirname, '.', 'data.json');
     const result = [];

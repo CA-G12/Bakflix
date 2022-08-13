@@ -6,8 +6,6 @@ const movieSuggestionsNames = document.querySelector('.movies-suggestions-names'
 const searchInput = document.querySelector('#input');
 const suggestionsTitle = document.querySelector('.suggestions-title');
 
-const input = document.querySelector('#input');
-
 // for make hidde moview image container and moview names container when the page load
 window.onload = () => {
   landingSection.style.display = 'flex';
@@ -24,15 +22,15 @@ btnLandingSection.addEventListener('click', () => {
 
 // for git data from json by using fetch api function
 searchInput.addEventListener('input', (e) => {
-  const haga = e.target.value;
-  if (haga.value === '') {
+  const haga= e.target.value
+  if (searchInput.value === '') {
     movieSuggestionsImages.style.transform = 'translateX(-400%)';
     movieSuggestionsNames.style.transform = 'translateX(400%)';
   } else {
     movieSuggestionsImages.style.transform = 'translateX(0%)';
     movieSuggestionsNames.style.transform = 'translateX(0%)';
   }
-  fetch(`/search/${haga}`, (data) => {
+  fetch(`/src/${haga}`, (data) => {
     handleDom(data);
   });
 });
@@ -50,7 +48,7 @@ function handleDom(data) {
   for (let i = 0; i < data.length; i++) {
     const names = data[i].name;
     const { img } = data[i];
-    if (names.toLowerCase().includes(input.value.toLowerCase())) {
+    if (names.toLowerCase().includes(searchInput.value.toLowerCase())) {
       createElemets(movieSuggestionsImages, 'img', img);
       createElemets(suggestionsTitle, 'a', names);
     }
@@ -58,8 +56,16 @@ function handleDom(data) {
 }
 function createElemets(parent, child, content) {
   const element = document.createElement(`${child}`);
-  if (child === 'img') { element.src = content; } else if (child === 'a') { element.href = content, element.textContent = content; } else { element.textContent = content; }
+  if (child === 'img') {
+    element.src = content;
+  } else if (child === 'a') {
+    element.href = '#';
+    element.textContent = content;
+  } else {
+    element.textContent = content;
+  }
   parent.appendChild(element);
+  return element;
 }
 module.exports = {
   createElemets,
