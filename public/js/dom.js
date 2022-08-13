@@ -3,7 +3,8 @@ const browseSection = document.querySelector('#browse');
 const btnLandingSection = document.querySelector('#btn');
 const movieSuggestionsImages = document.querySelector('.movies-suggestions-images');
 const movieSuggestionsNames = document.querySelector('.movies-suggestions-names');
-const searchInput = document.querySelector('input');
+const searchInput = document.querySelector('#input');
+const suggestionsTitle = document.querySelector('.suggestions-title');
 
 const input = document.querySelector('#input');
 
@@ -15,7 +16,7 @@ window.onload = () => {
   movieSuggestionsNames.style.transform = 'translateX(-400%)';
 };
 
-// for view and hidde browse section 
+// for view and hidde browse section
 btnLandingSection.addEventListener('click', () => {
   landingSection.style.display = 'none';
   browseSection.style.display = 'block';
@@ -36,7 +37,6 @@ searchInput.addEventListener('input', (e) => {
   });
 });
 
-
 function removeDuplicates(mainDiv) {
   while (mainDiv.firstChild) {
     mainDiv.removeChild(mainDiv.lastChild);
@@ -45,20 +45,23 @@ function removeDuplicates(mainDiv) {
 
 // for handle data in dom
 function handleDom(data) {
-  removeDuplicates(movieSuggestionsNames)
-  removeDuplicates(movieSuggestionsImages)
+  removeDuplicates(suggestionsTitle);
+  removeDuplicates(movieSuggestionsImages);
   for (let i = 0; i < data.length; i++) {
-    console.log(data)
-    const names = data[i][`name`];
-    const img = data[i][`img`];
+    const names = data[i].name;
+    const { img } = data[i];
     if (names.toLowerCase().includes(input.value.toLowerCase())) {
-      console.log(input.value.split(' ').join(''));
-      const movieName = document.createElement('a')
-      movieName.textContent = names
-      movieSuggestionsNames.appendChild(movieName)
-      const movieImage = document.createElement('img')
-      movieImage.src = img;
-      movieSuggestionsImages.appendChild(movieImage)
+      createElemets(movieSuggestionsImages, 'img', img);
+      createElemets(suggestionsTitle, 'a', names);
     }
   }
 }
+function createElemets(parent, child, content) {
+  const element = document.createElement(`${child}`);
+  if (child === 'img') { element.src = content; } else if (child === 'a') { element.href = content, element.textContent = content; } else { element.textContent = content; }
+  parent.appendChild(element);
+}
+module.exports = {
+  createElemets,
+  removeDuplicates,
+};
