@@ -379,6 +379,10 @@ main {
   color: var(--white);
   margin-bottom: 2.5rem;
 }
+#browse .movies-suggestions-names .suggestions-title {
+  display: flex;
+  flex-direction: column;
+}
 
 #browse .movies-suggestions-names a {
   text-decoration: none;

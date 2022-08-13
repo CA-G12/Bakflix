@@ -16,7 +16,7 @@ window.onload = () => {
   movieSuggestionsNames.style.transform = 'translateX(-400%)';
 };
 
-// for view and hidde browse section 
+// for view and hidde browse section
 btnLandingSection.addEventListener('click', () => {
   landingSection.style.display = 'none';
   browseSection.style.display = 'block';
@@ -27,18 +27,17 @@ btnLandingSection.addEventListener('click', () => {
 searchInput.addEventListener('input', (e) => {
   e.preventDefault()
   const haga = e.target.value;
-  if (haga.value === '') {
+  if (searchInput.value === '') {
     movieSuggestionsImages.style.transform = 'translateX(-400%)';
     movieSuggestionsNames.style.transform = 'translateX(400%)';
   } else {
     movieSuggestionsImages.style.transform = 'translateX(0%)';
     movieSuggestionsNames.style.transform = 'translateX(0%)';
   }
-  fetch(`/search/${haga}`, (data) => {
+  fetch(`/src/${haga}`, (data) => {
     handleDom(data);
   });
 });
-
 
 function removeDuplicates(mainDiv) {
   while (mainDiv.firstChild) {
@@ -92,4 +91,19 @@ function getDetails (data) {
   container.appendChild(heading);
   container.appendChild(divPara);
   movieSuggestionsImages.appendChild(div)
+}
+
+
+function createElemets(parent, child, content) {
+  const element = document.createElement(`${child}`);
+  if (child === 'img') {
+    element.src = content;
+  } else if (child === 'a') {
+    element.href = '#';
+    element.textContent = content;
+  } else {
+    element.textContent = content;
+  }
+  parent.appendChild(element);
+  return element;
 }
