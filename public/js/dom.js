@@ -23,6 +23,7 @@ btnLandingSection.addEventListener('click', () => {
 
 // for git data from json by using fetch api function
 searchInput.addEventListener('input', (e) => {
+  e.preventDefault()
   const haga = e.target.value;
   if (haga.value === '') {
     movieSuggestionsImages.style.transform = 'translateX(-400%)';
@@ -48,7 +49,6 @@ function handleDom(data) {
   removeDuplicates(movieSuggestionsNames)
   removeDuplicates(movieSuggestionsImages)
   for (let i = 0; i < data.length; i++) {
-    console.log(data)
     const names = data[i][`name`];
     const img = data[i][`img`];
     if (names.toLowerCase().includes(input.value.toLowerCase())) {
