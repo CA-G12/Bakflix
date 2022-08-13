@@ -46,7 +46,7 @@ const router = (req, res) => {
         if (searchText !== '') {
           const jsonData = JSON.parse(data.toString());
           for (let key in jsonData) {
-            if (jsonData[key].name.toLowerCase().includes(searchText.toLowerCase())) {
+            if (jsonData[key].name.toLowerCase().includes(searchText.split(`%20`).join(` `).toLowerCase())) {
               let obj = {id:key,...jsonData[key]};
               result.push(obj);
             }
